@@ -7,14 +7,50 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 class LoginViewController: UIViewController {
-
+    
+    @IBAction func loginButton(_ sender: UIButton) {
+        VKSdk.authorize(["email"])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let instance = VKSdk.initialize(withAppId: "7298901")
+        instance?.register(self)
+        instance?.uiDelegate = self
     }
+    
+    
+}
 
-
+extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
+    
+    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
+        print(result.token.email)
+    }
+    
+    func vkSdkUserAuthorizationFailed() {
+        // alert
+    }
+    
+    func vkSdkShouldPresent(_ controller: UIViewController!) {
+        if (self.presentedViewController != nil) {
+            self.dismiss(animated: true, completion: {
+                self.present(controller, animated: true, completion: {
+                })
+            })
+        } else {
+            self.present(controller, animated: true, completion: {
+            })
+        }
+    }
+    
+    func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
+        //alert
+    }
+    
+    
 }
 
