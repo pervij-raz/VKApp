@@ -11,9 +11,12 @@
 		AD04DFDA23E0AA1B0011471D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD04DFD823E0AA1B0011471D /* Main.storyboard */; };
 		AD04DFDC23E0AA1C0011471D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD04DFDB23E0AA1C0011471D /* Assets.xcassets */; };
 		AD04DFDF23E0AA1C0011471D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD04DFDD23E0AA1C0011471D /* LaunchScreen.storyboard */; };
-		AD04DFE723E0AB0C0011471D /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04DFE623E0AB0C0011471D /* NewsViewController.swift */; };
-		AD04DFE923E0AB450011471D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04DFE823E0AB450011471D /* ProfileViewController.swift */; };
 		AD04DFEB23E0B2B80011471D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04DFEA23E0B2B80011471D /* LoginViewController.swift */; };
+		AD04DFEF23E0D3130011471D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04DFEE23E0D3120011471D /* ProfileViewController.swift */; };
+		AD04DFF123E0D3380011471D /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04DFF023E0D3380011471D /* NewsViewController.swift */; };
+		AD04DFF323E1F74F0011471D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04DFF223E1F74F0011471D /* TabBarController.swift */; };
+		AD04DFF523E2191C0011471D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04DFF423E2191C0011471D /* Article.swift */; };
+		AD04DFF723E21D860011471D /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04DFF623E21D860011471D /* DataProvider.swift */; };
 		CB936461666AA70B0FEB7034 /* Pods_VKApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D461524CDF0C1FAF6D6AA3 /* Pods_VKApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,9 +30,12 @@
 		AD04DFDB23E0AA1C0011471D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD04DFDE23E0AA1C0011471D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD04DFE023E0AA1C0011471D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD04DFE623E0AB0C0011471D /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
-		AD04DFE823E0AB450011471D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AD04DFEA23E0B2B80011471D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AD04DFEE23E0D3120011471D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AD04DFF023E0D3380011471D /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		AD04DFF223E1F74F0011471D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		AD04DFF423E2191C0011471D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		AD04DFF623E21D860011471D /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,13 +81,16 @@
 			isa = PBXGroup;
 			children = (
 				AD04DFD423E0AA1B0011471D /* AppDelegate.swift */,
-				AD04DFE623E0AB0C0011471D /* NewsViewController.swift */,
-				AD04DFE823E0AB450011471D /* ProfileViewController.swift */,
+				AD04DFEA23E0B2B80011471D /* LoginViewController.swift */,
 				AD04DFD823E0AA1B0011471D /* Main.storyboard */,
 				AD04DFDB23E0AA1C0011471D /* Assets.xcassets */,
 				AD04DFDD23E0AA1C0011471D /* LaunchScreen.storyboard */,
 				AD04DFE023E0AA1C0011471D /* Info.plist */,
-				AD04DFEA23E0B2B80011471D /* LoginViewController.swift */,
+				AD04DFEE23E0D3120011471D /* ProfileViewController.swift */,
+				AD04DFF023E0D3380011471D /* NewsViewController.swift */,
+				AD04DFF223E1F74F0011471D /* TabBarController.swift */,
+				AD04DFF423E2191C0011471D /* Article.swift */,
+				AD04DFF623E21D860011471D /* DataProvider.swift */,
 			);
 			path = VKApp;
 			sourceTree = "<group>";
@@ -210,9 +219,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD04DFEB23E0B2B80011471D /* LoginViewController.swift in Sources */,
-				AD04DFE723E0AB0C0011471D /* NewsViewController.swift in Sources */,
-				AD04DFE923E0AB450011471D /* ProfileViewController.swift in Sources */,
+				AD04DFEF23E0D3130011471D /* ProfileViewController.swift in Sources */,
+				AD04DFF523E2191C0011471D /* Article.swift in Sources */,
+				AD04DFF723E21D860011471D /* DataProvider.swift in Sources */,
 				AD04DFD523E0AA1B0011471D /* AppDelegate.swift in Sources */,
+				AD04DFF323E1F74F0011471D /* TabBarController.swift in Sources */,
+				AD04DFF123E0D3380011471D /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

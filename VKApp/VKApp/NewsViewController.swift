@@ -7,24 +7,35 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 class NewsViewController: UIViewController {
+    
+    var news: [Article]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let _ = VKSdk.initialize(withAppId: "7298901")
+        VKSdk.wakeUpSession(["email", "wall", "friends", "offline"]) {[weak self] (state, error) in
+            self?.isLogggedIn = state == .authorized
+            if !(self?.isLogggedIn ?? false) {
+                self?.authorization()
+            }
+        }    }
+  
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 10
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+            return cell
+        }
+        
+        
     }
-    */
-
-}

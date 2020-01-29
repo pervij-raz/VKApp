@@ -12,7 +12,7 @@ import VK_ios_sdk
 class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: UIButton) {
-        VKSdk.authorize(["email"])
+        VKSdk.authorize(["email", "wall", "friends", "offline"])
     }
     
     override func viewDidLoad() {
@@ -22,13 +22,16 @@ class LoginViewController: UIViewController {
         instance?.uiDelegate = self
     }
     
-    
 }
 
 extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        print(result.token.email)
+        if result.state == .authorized {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            //alert
+        }
     }
     
     func vkSdkUserAuthorizationFailed() {
