@@ -11,17 +11,14 @@ import VK_ios_sdk
 
 class NewsViewController: UIViewController {
     
-    var news: [Article]?
-
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let _ = VKSdk.initialize(withAppId: "7298901")
-        VKSdk.wakeUpSession(["email", "wall", "friends", "offline"]) {[weak self] (state, error) in
-            self?.isLogggedIn = state == .authorized
-            if !(self?.isLogggedIn ?? false) {
-                self?.authorization()
-            }
-        }    }
+        NetworkManager.shared.loadData(handler: { self.tableView.reloadData()})
+    }
+
   
         
     }
@@ -29,11 +26,12 @@ class NewsViewController: UIViewController {
     
     extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 10
+            return NetworkManager.shared.articles?.count ?? 0
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath) as? NewsTableViewCell, let article = NetworkManager.shared.articles?[indexPath.row] else {fatalError()}
+            cell.setDataWith(article)
             return cell
         }
         

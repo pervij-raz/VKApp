@@ -8,6 +8,7 @@ target 'VKApp' do
   # Pods for VKApp
 
 pod 'VK-ios-sdk'
-pod 'Moya', '~> 13.0'
+pod 'Alamofire', '~> 5.0.0-rc.2'
+pod 'SDWebImage', '~> 5.0'
 
 end

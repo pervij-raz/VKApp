@@ -27,10 +27,12 @@ class LoginViewController: UIViewController {
 extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        if result.state == .authorized {
-            self.dismiss(animated: true, completion: nil)
-        } else {
+        if result.state == .error {
             //alert
+        } else {
+            UserDefaults.standard.set(result.token.accessToken, forKey: "token")
+            print(UserDefaults.standard.string(forKey: "token"))
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

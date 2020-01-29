@@ -1,5 +1,5 @@
 //
-//  DataProvider.swift
+//  NetworkManager.swift
 //  VKApp
 //
 //  Created by Ольга Бычок on 29/01/2020.
@@ -8,6 +8,15 @@
 
 import Foundation
 
-class DataProvider {
+class NetworkManager {
+    
+    static let shared = NetworkManager()
+    
+    private init() {
+    }
+    
+    
+    
+    
     
 }
