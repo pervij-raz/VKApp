@@ -31,8 +31,12 @@ extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
             //alert
         } else {
             UserDefaults.standard.set(result.token.accessToken, forKey: "token")
-            print(UserDefaults.standard.string(forKey: "token"))
-            self.dismiss(animated: true, completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let tabBarController = storyboard.instantiateViewController(withIdentifier: "123") as? TabBarController {
+                
+                tabBarController.navigationItem.hidesBackButton = true
+                self.navigationController?.pushViewController(tabBarController, animated: true)
+            }
         }
     }
     

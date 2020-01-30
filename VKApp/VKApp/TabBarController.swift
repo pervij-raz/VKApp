@@ -31,12 +31,11 @@ class TabBarController: UITabBarController {
     }
     
     private func authorization() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let loginVC = storyboard.instantiateViewController(withIdentifier: "loginVC") as? LoginViewController {
-            appDelegate.window?.rootViewController?.present(loginVC, animated: true, completion: nil)
+            
+          loginVC.navigationItem.hidesBackButton = true
+            self.navigationController?.pushViewController(loginVC, animated: true)
         }
     }
     
